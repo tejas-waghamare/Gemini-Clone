@@ -84,7 +84,7 @@ const DisplayMessages = () => {
     };
 
     return (
-        <div className='flex flex-col w-full h-[93%] bg-slate-800 '>
+        <div className='flex flex-col w-full h-[93%] bg-black '>
             <div className='h-4/5 max-h-4/5 w-4/5 mx-auto overflow-y-scroll mb-4 mt-2  rounded-2xl py-5 bg-white  items-center justify-center'>
                 {
                     messages.length > 0 ?
@@ -108,7 +108,7 @@ const DisplayMessages = () => {
             </div>
 
             <form className='flex items-center gap-4 w-3/4 mx-auto' onSubmit={handleSubmit}>
-                <input type="text" name="userInput" id={newId} className='text-xl border-2 w-full p-3 rounded-4xl bg-gray-300 ' placeholder='Ask Gemini'
+                <input type="text" name="userInput" id={newId} className='text-xl border-2 w-full p-3 rounded-4xl bg-gray-100 ' placeholder='Ask Gemini'
                     onChange={(e) => setFormData({
 
                         userInput: e.target.value
