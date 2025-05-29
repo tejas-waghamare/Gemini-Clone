@@ -19,7 +19,7 @@ function App() {
                 <Route path="/" element={
                     <div className="flex h-screen">
                         <Sidebar />
-                        <div className="w-4/5">
+                        <div className="w-full">
                             <Navbar />
                             <Outlet />
                         </div>
