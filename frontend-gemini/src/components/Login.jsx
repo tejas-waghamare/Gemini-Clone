@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setUserData } from '../features/authSlice'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getChatsofUser } from '../services/servics'
 import { setChats } from '../features/chatSlice'
 const Login = () => {
@@ -27,7 +27,8 @@ const Login = () => {
 
         // post req to validate user
         try {
-            const res = await axios.post('http://localhost:3000/api/v1/auth/login', formData)
+            // const res = await axios.post('http://localhost:3000/api/v1/auth/login', formData)
+            const res = await axios.post('https://gemini-clone-backend-z3g9.onrender.com/api/v1/auth/login', formData)
 
             alert(res.data.message);
             if (res.data.status == 'success') {
@@ -54,8 +55,14 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
-            <form onSubmit={handleSubmitForm} className='p-7 py-10 rounded-2xl shadow-2xl'>
+        <div className="flex justify-around m-20 items-center rounded-2xl shadow-2xl p-7 py-10">
+
+            <div>
+          <img src="https://cdni.iconscout.com/illustration/premium/thumb/account-login-protection-illustration-download-in-svg-png-gif-file-formats--security-secure-pack-files-folders-illustrations-7271014.png" alt="" />
+      </div>
+
+            <form onSubmit={handleSubmitForm} className='p-7 py-10 '>
+
                 <h1 className="multicolor-text text-4xl p-2 text-center mb-7 font-bold font-serif">Login Form</h1>
 
                 <div className="mb-5">
@@ -70,7 +77,12 @@ const Login = () => {
                 <div className="mb-5 flex justify-center">
                     <button type="submit" className="bg-cyan-500 hover:bg-cyan-600 px-5 text-2xl rounded-lg cursor-pointer">Login</button>
                 </div>
+
+                <p className='text-blue-600 cursor-pointer  text-m hover:text-purple-600'><Link to= "/register">Not a User ? Sign Up...!</Link></p>
             </form>
+              {/* <div>
+          <img src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?semt=ais_hybrid&w=740" alt="" />
+      </div> */}
         </div>
         /*
          <div className='flex justify-center items-center h-screen  '>
