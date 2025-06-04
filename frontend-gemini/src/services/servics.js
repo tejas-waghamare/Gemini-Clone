@@ -34,7 +34,8 @@ export const createNewChatinDB = async (name) => {
     }
 
     try {
-        const res = await axios.post('http://localhost:3000/api/v1/chat/create-chat', data, config);
+        // const res = await axios.post('http://localhost:3000/api/v1/chat/create-chat', data, config);
+        const res = await axios.post('https://gemini-clone-backend-z3g9.onrender.com/api/v1/chat/create-chat', data, config);
 
         if (res.data.status == 'success') {
             return res.data.data;
@@ -64,7 +65,9 @@ export const createNewMessageinDB = async (text, chatId, isGeminiResponse) => {
 
 
     try {
-        const res = await axios.post('http://localhost:3000/api/v1/message/create-message', data, config);
+        // const res = await axios.post('http://localhost:3000/api/v1/message/create-message', data, config);
+        const res = await axios.post('https://gemini-clone-backend-z3g9.onrender.com/api/v1/message/create-message', data, config);
+
 
         if (res.data.status == 'success') {
             return res.data.data;
@@ -88,7 +91,8 @@ export const getChatsofUser = async () => {
         },
     }
     try {
-        const res = await axios.get('http://localhost:3000/api/v1/chat/get-chats', config);
+        // const res = await axios.get('http://localhost:3000/api/v1/chat/get-chats', config);
+        const res = await axios.get('https://gemini-clone-backend-z3g9.onrender.com/api/v1/chat/get-chats', config);
         if (res.data.status == 'success') {
             return res.data.data
         }
@@ -111,7 +115,8 @@ export const getMessagesofChat = async (chatId) => {
         },
     }
     try {
-        const res = await axios.get(`http://localhost:3000/api/v1/message/get-all-messages/${chatId}`, config);
+        // const res = await axios.get(`http://localhost:3000/api/v1/message/get-all-messages/${chatId}`, config);
+        const res = await axios.get(`https://gemini-clone-backend-z3g9.onrender.com/api/v1/message/get-all-messages/${chatId}`, config);
         if (res.data.status == 'success') {
             return res.data.data;
         }
