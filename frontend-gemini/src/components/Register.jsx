@@ -37,7 +37,8 @@ const Register = () => {
 
         // post req with axios
         try {
-            const res = await axios.post('http://localhost:3000/api/v1/auth/register', formData)
+            // const res = await axios.post('http://localhost:3000/api/v1/auth/register', formData)
+            const res = await axios.post('https://gemini-clone-backend-z3g9.onrender.com/api/v1/auth/register', formData)
             alert(res.data.message);
             if (res.data.status == 'success') {
                 navigate('/login');
