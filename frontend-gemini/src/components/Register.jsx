@@ -49,7 +49,7 @@ const Register = () => {
     }
 
     return (
-       <div className='flex justify-around items-center m-15 rounded-2xl shadow-2xl border '>
+       <div className='flex justify-around items-center mt-5 overflow-auto rounded-2xl shadow-2xl border '>
 
       <div>
           <img src="https://img.freepik.com/premium-vector/online-registration-illustration-design-concept-websites-landing-pages-other_108061-938.jpg" alt="" />

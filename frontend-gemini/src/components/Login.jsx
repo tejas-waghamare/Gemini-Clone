@@ -55,7 +55,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-around m-20 items-center rounded-2xl shadow-2xl p-7 py-10">
+        <div className="flex justify-around mt-5 items-center rounded-2xl overflow-auto flex-wrap shadow-2xl p-7 py-10">
 
             <div>
           <img src="https://cdni.iconscout.com/illustration/premium/thumb/account-login-protection-illustration-download-in-svg-png-gif-file-formats--security-secure-pack-files-folders-illustrations-7271014.png" alt="" />
