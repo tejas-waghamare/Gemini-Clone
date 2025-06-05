@@ -1,4 +1,3 @@
-
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,16 +5,16 @@ import { logout } from "../features/authSlice";
 
 const Navbar = () => {
   const { chatId } = useParams();
-  const chats = useSelector(state => state.chats.value);
-  const chat = chats.find(c => c._id === chatId); // Assuming `_id` is correct key
-  const loggedInUser = useSelector(state => state.auth.user);
+  const chats = useSelector((state) => state.chats.value);
+  const chat = chats.find((c) => c._id === chatId);
+  const loggedInUser = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const logoutUser = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -24,8 +23,8 @@ const Navbar = () => {
         ReactBot
       </span>
 
-      {loggedInUser && (
-        <div className="flex items-center gap-3 text-lg bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition duration-200 ">
+      {loggedInUser ? (
+        <div className="flex items-center gap-3 text-lg bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition duration-200">
           <FaUser className="text-blue-600" />
           <span>{loggedInUser.name || "User"}</span>
           <button
@@ -35,12 +34,20 @@ const Navbar = () => {
             Logout
           </button>
         </div>
+      ) : (
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition duration-200 text-lg"
+        >
+          Sign In
+        </button>
       )}
     </nav>
   );
 };
 
 export default Navbar;
+
 
 
 
