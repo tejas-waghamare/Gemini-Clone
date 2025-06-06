@@ -31,9 +31,12 @@ const chatSlice = createSlice({
         },
         deleteChat: (state, action) => {
             state.value = state.value.filter(chat => chat.id !== action.payload)
-        }
+        },
+         removeChat: (state, action) => {
+    state.value = state.value.filter(chat => chat._id !== action.payload);
+  }
     }
 });
 
-export const { createNewChat, deleteChat, setChats } = chatSlice.actions;
+export const { createNewChat, deleteChat, setChats,removeChat } = chatSlice.actions;
 export default chatSlice.reducer;

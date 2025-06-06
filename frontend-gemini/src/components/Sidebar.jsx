@@ -1,12 +1,23 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { HiOutlineChatAlt2, HiOutlinePlusCircle, HiMenu, HiX } from "react-icons/hi";
+import { HiOutlineChatAlt2, HiOutlinePlusCircle, HiMenu, HiX, HiTrash } from "react-icons/hi";
+import { removeChat } from "../features/chatSlice"; // Replace with actual action if different
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const chats = useSelector(state => state.chats.value);
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleDelete = (id) => {
+    dispatch(removeChat(id));
+  };
+
+  const filteredChats = chats.filter(chat =>
+    chat.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
@@ -30,9 +41,18 @@ const Sidebar = () => {
           flex flex-col p-6
         `}
       >
-        <h2 className="text-3xl font-bold mb-8 text-center tracking-wide select-none">
+        <h2 className="text-3xl font-bold mb-6 text-center tracking-wide select-none">
           ReactBot
         </h2>
+
+        {/* Search Input */}
+        <input
+          type="text"
+          placeholder="Search chats..."
+          className="mb-4 p-2 px-4 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
 
         <nav className="flex flex-col space-y-3 overflow-y-auto">
           <Link
@@ -45,28 +65,35 @@ const Sidebar = () => {
             New Chat
           </Link>
 
-          <div className="mt-4 flex-grow overflow-y-auto">
-            {chats.length === 0 && (
+          <div className="mt-4 flex-grow overflow-y-auto space-y-2">
+            {filteredChats.length === 0 ? (
               <p className="px-4 py-3 text-gray-400 text-sm">No chats available</p>
+            ) : (
+              filteredChats.map(chat => (
+                <div
+                  key={chat._id}
+                  className="group flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gray-700 transition"
+                >
+                  <Link
+                    to={`/${chat._id}`}
+                    className={`flex items-center gap-3 truncate w-full ${
+                      location.pathname === `/${chat._id}` ? "text-white" : "text-gray-300"
+                    }`}
+                  >
+                    <HiOutlineChatAlt2 size={20} />
+                    <span className="truncate">{chat.name}</span>
+                  </Link>
+                  {/* Delete Icon on Hover */}
+                  <button
+                    onClick={() => handleDelete(chat._id)}
+                    className="text-red-500 opacity-0 group-hover:opacity-100 transition"
+                    title="Delete Chat"
+                  >
+                    <HiTrash size={18} />
+                  </button>
+                </div>
+              ))
             )}
-
-            {chats.map(chat => (
-              <Link
-                key={chat._id}
-                to={`/${chat._id}`}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer truncate hover:bg-gray-700 transition
-                  ${
-                    location.pathname === `/${chat._id}`
-                      ? "bg-blue-700 text-white"
-                      : "text-gray-300"
-                  }
-                `}
-                title={chat.name}
-              >
-                <HiOutlineChatAlt2 size={20} />
-                <span className="truncate">{chat.name}</span>
-              </Link>
-            ))}
           </div>
         </nav>
       </aside>
@@ -75,6 +102,7 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 
 
