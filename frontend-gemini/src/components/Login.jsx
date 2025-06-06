@@ -57,8 +57,8 @@ const Login = () => {
     return (
         <div className="flex justify-around mt-5 items-center rounded-2xl overflow-auto flex-wrap shadow-2xl p-7 py-10">
 
-            <div>
-          <img src="https://cdni.iconscout.com/illustration/premium/thumb/account-login-protection-illustration-download-in-svg-png-gif-file-formats--security-secure-pack-files-folders-illustrations-7271014.png" alt="" />
+            <div className='w-130'>
+          <img src="https://img.freepik.com/free-vector/website-designer-concept-illustration_114360-4449.jpg?semt=ais_items_boosted&w=740" alt="" />
       </div>
 
             <form onSubmit={handleSubmitForm} className='p-7 py-10 '>

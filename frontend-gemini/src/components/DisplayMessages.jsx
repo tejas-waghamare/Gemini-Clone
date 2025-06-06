@@ -88,7 +88,7 @@ const DisplayMessages = () => {
                         <div
                             key={msg._id}
                             className={`w-full flex ${msg.geminiResponse ? 'justify-start' : 'justify-end'}`}
-                        >
+                        >   
                             <div
                                 className={`p-4 mb-3 text-xl max-w-[95%] rounded-xl ${msg.geminiResponse
                                         ? 'bg-gray-200 text-black'

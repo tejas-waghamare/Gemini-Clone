@@ -57,8 +57,8 @@ const Sidebar = () => {
         <nav className="flex flex-col space-y-3 overflow-y-auto">
           <Link
             to="/new-chat"
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-lg hover:bg-blue-600 transition ${
-              location.pathname === "/new-chat" ? "bg-blue-700" : ""
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-lg hover:bg-green-600 transition ${
+              location.pathname === "/new-chat" ? "bg-green-700" : ""
             }`}
           >
             <HiOutlinePlusCircle size={24} />

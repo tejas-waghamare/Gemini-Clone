@@ -51,8 +51,8 @@ const Register = () => {
     return (
        <div className='flex flex-wrap justify-around items-center mt-5 overflow-auto rounded-2xl shadow-2xl border '>
 
-      <div>
-          <img src="https://img.freepik.com/premium-vector/online-registration-illustration-design-concept-websites-landing-pages-other_108061-938.jpg" alt="" />
+      <div className='w-170'>
+          <img src="https://png.pngtree.com/png-clipart/20230814/original/pngtree-online-registration-or-sign-up-login-for-account-on-smartphone-app-picture-image_7929949.png" alt="" />
       </div>
             <form action="" onSubmit={handleSubmitForm} className=' p-5 '>
                 <h1 className='multicolor-text text-3xl p-2 text-center mb-3 font-bold font-serif' >Create An Account</h1>
