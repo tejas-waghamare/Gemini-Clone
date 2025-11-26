@@ -22,18 +22,18 @@ const Sidebar = () => {
   return (
     <>
       {/* Mobile Hamburger */}
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-black text-white shadow-lg"
+       <button
+        className="md:hidden fixed top-10 left-3 z-[100] p-1 rounded-md  text-white shadow-lg"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle sidebar"
       >
-        {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+        {isOpen ? <HiX size={20} /> : <HiMenu size={20} />}
       </button>
 
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 h-full bg-gradient-to-b from-gray-900 to-black text-white w-64
+          fixed top-0 left-0 h-full bg-gradient-to-b from-gray-900 to-black text-white w-64 
           transform transition-transform duration-300 ease-in-out
           shadow-lg border-r border-gray-800 z-40
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
@@ -42,7 +42,7 @@ const Sidebar = () => {
         `}
       >
         <h2 className="text-3xl font-bold mb-6 text-center tracking-wide select-none">
-          ReactBot
+          GeminiClone
         </h2>
 
         {/* Search Input */}

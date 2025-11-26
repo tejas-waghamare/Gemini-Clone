@@ -1,3 +1,56 @@
+// import { FaUser } from "react-icons/fa";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useNavigate, useParams } from "react-router-dom";
+// import { logout } from "../features/authSlice";
+
+// const Navbar = () => {
+//   const { chatId } = useParams();
+//   const chats = useSelector((state) => state.chats.value);
+//   const chat = chats.find((c) => c._id === chatId);
+//   const loggedInUser = useSelector((state) => state.auth.user);
+
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+
+//   const logoutUser = () => {
+//     dispatch(logout());
+//     navigate("/login");
+//   };
+
+//   return (
+//     <nav className="flex justify-between h-18 items-center bg-black px-6 py-3 shadow-md border-b border-gray-800">
+//       <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-500 font-mono">
+//         GeminiClone
+//       </span>
+
+//       {loggedInUser ? (
+//         <div className="flex items-center gap-3 text-lg bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition duration-200">
+//           <FaUser className="text-blue-600" />
+//           <span>{loggedInUser.name || "User"}</span>
+//           <button
+//             onClick={logoutUser}
+//             className="ml-2 px-3 py-1 cursor-pointer bg-red-500 text-white text-sm rounded hover:bg-red-600 transition duration-150"
+//           >
+//             Logout
+//           </button>
+//         </div>
+//       ) : (
+//         <button
+//           onClick={() => navigate("/login")}
+//           className="bg-red-500 text-black px-4 py-2 rounded-full shadow hover:bg-red-300 transition duration-200 text-lg cursor-pointer"
+//         >
+//           Sign In
+//         </button>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
+
+
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -18,18 +71,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between h-18 items-center bg-black px-6 py-3 shadow-md border-b border-gray-800">
-      <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-500 font-mono">
-        ReactBot
+    <nav className="flex justify-between items-center bg-black px-4 md:px-6 py-4 shadow-md border-b border-gray-800 min-h-[4rem] relative z-50"> {/* Increased z-index */}
+      <span className="text-xl md:text-3xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-500 font-mono truncate max-w-[40%]">
+        GeminiClone
       </span>
 
       {loggedInUser ? (
-        <div className="flex items-center gap-3 text-lg bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition duration-200">
-          <FaUser className="text-blue-600" />
-          <span>{loggedInUser.name || "User"}</span>
+        <div className="flex items-center gap-2 text-sm md:text-lg bg-white text-black px-3 md:px-4 py-1 md:py-2 rounded-full shadow hover:bg-gray-100 transition duration-200">
+          <FaUser className="text-blue-600 flex-shrink-0" size={14} />
+          <span className="truncate max-w-[80px] md:max-w-none">
+            {loggedInUser.name || "User"}
+          </span>
           <button
             onClick={logoutUser}
-            className="ml-2 px-3 py-1 cursor-pointer bg-red-500 text-white text-sm rounded hover:bg-red-600 transition duration-150"
+            className="ml-1 md:ml-2 px-2 md:px-3 py-1 cursor-pointer bg-red-500 text-white text-xs md:text-sm rounded hover:bg-red-600 transition duration-150 flex-shrink-0"
           >
             Logout
           </button>
@@ -37,7 +92,7 @@ const Navbar = () => {
       ) : (
         <button
           onClick={() => navigate("/login")}
-          className="bg-red-500 text-black px-4 py-2 rounded-full shadow hover:bg-red-300 transition duration-200 text-lg cursor-pointer"
+          className="bg-red-500 text-black px-3 md:px-4 py-1 md:py-2 rounded-full shadow hover:bg-red-300 transition duration-200 text-sm md:text-lg cursor-pointer flex-shrink-0"
         >
           Sign In
         </button>
@@ -47,11 +102,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
 
 
 // import { FaUser } from "react-icons/fa"
