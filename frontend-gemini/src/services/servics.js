@@ -3,14 +3,14 @@ import { GoogleGenAI } from "@google/genai";
 import { marked } from "marked";
 
 
-const GEMINI_API_KEY = "AIzaSyCjT4oAI19pgZrKhMd7KH4dABtSBLierF4";
+const GEMINI_API_KEY = "AIzaSyDZQh799pxWjxJxV89-S9w3g_7gR6fql_k";
 
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export const getGeminiResponse = async (question) => {
     
     const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
+        model: "gemini-2.5-flash",
         contents: question,
     });
 
