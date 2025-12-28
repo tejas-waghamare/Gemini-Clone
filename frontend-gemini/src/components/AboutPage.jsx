@@ -384,7 +384,7 @@
 import { useState, useEffect } from 'react';
 import { FaGem, FaBrain, FaRocket, FaShieldAlt, FaUsers, FaGlobe, FaCode, FaLaptopCode, FaLightbulb, FaStar, FaChevronRight, FaUser } from 'react-icons/fa';
 import { HiOutlineSparkles, HiOutlineChatAlt2, HiOutlineLightningBolt } from 'react-icons/hi';
-import mypic from '../assets/mypic.jpg'
+import mypic from '../assets/mypic.JPG'
 import { motion, AnimatePresence } from 'framer-motion';
 
 const AboutPage = ({ onClose }) => {
