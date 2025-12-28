@@ -5,6 +5,7 @@ import Login from "./components/Login.jsx"
 import './App.css'
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom"
 import Register from "./components/Register.jsx"
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
@@ -31,6 +32,26 @@ function App() {
             </Routes>
         </BrowserRouter>
        </div>
+       <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            theme: {
+              primary: 'green',
+              secondary: 'black',
+            },
+          },
+          error: {
+            duration: 4000,
+          },
+        }}
+      />
        
        </>
     )
