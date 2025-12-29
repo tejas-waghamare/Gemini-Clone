@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 export const getGeminiResponse = async (question) => {
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-2.0-flash-exp", // Use a valid model
+            model: "gemini-2.5-flash-exp", // Use a valid model
             contents: [{ role: "user", parts: [{ text: question }] }],
         });
 
