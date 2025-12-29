@@ -135,7 +135,7 @@ import axios from "axios";
 import { GoogleGenAI } from "@google/genai";
 import { marked } from "marked";
 
-const GEMINI_API_KEY = "AIzaSyDZQh799pxWjxJxV89-S9w3g_7gR6fql_k";
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 

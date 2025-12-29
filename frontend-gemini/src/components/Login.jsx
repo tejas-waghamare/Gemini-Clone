@@ -451,65 +451,6 @@ const Login = () => {
 
     return (
         <div className="relative flex justify-around items-center rounded-2xl overflow-auto flex-wrap shadow-2xl p-7 py-10 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-            {/* Add custom CSS for animations */}
-            <style jsx>{`
-                @keyframes slideIn {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                @keyframes bounceIn {
-                    0% {
-                        transform: translateX(100%) scale(0.3);
-                        opacity: 0;
-                    }
-                    50% {
-                        transform: translateX(-10%) scale(1.1);
-                    }
-                    70% {
-                        transform: translateX(5%) scale(0.9);
-                    }
-                    100% {
-                        transform: translateX(0) scale(1);
-                        opacity: 1;
-                    }
-                }
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(-20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                @keyframes progress {
-                    from {
-                        width: 100%;
-                    }
-                    to {
-                        width: 0%;
-                    }
-                }
-                .animate-slide-in {
-                    animation: slideIn 0.5s ease-out;
-                }
-                .animate-bounce-in {
-                    animation: bounceIn 0.7s ease-out;
-                }
-                .animate-fade-in {
-                    animation: fadeIn 0.4s ease-out;
-                }
-                .animate-progress {
-                    animation: progress 4s linear forwards;
-                }
-            `}</style>
 
             {/* Loading Overlay */}
             {isLoading && (

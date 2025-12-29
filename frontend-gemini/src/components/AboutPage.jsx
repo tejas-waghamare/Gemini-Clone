@@ -1,7 +1,7 @@
 // import { useState, useEffect } from 'react';
 // import { FaGem, FaBrain, FaRocket, FaShieldAlt, FaUsers, FaGlobe, FaCode, FaLightbulb, FaStar, FaChevronRight } from 'react-icons/fa';
 // import { HiOutlineSparkles, HiOutlineChatAlt2, HiOutlineLightningBolt } from 'react-icons/hi';
-// import { motion, AnimatePresence } from 'framer-motion';
+// import { AnimatePresence } from 'framer-motion';
 
 // const AboutPage = ({ onClose }) => {
 //   const [activeTab, setActiveTab] = useState('overview');

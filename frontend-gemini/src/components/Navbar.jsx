@@ -351,40 +351,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Custom CSS for animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-5px); }
-        }
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); }
-          50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 40px rgba(168, 85, 247, 0.5); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -1000px 0; }
-          100% { background-position: 1000px 0; }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-glow {
-          animation: glow 2s ease-in-out infinite;
-        }
-        .shimmer-text {
-          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-          background-size: 1000px 100%;
-          animation: shimmer 3s infinite linear;
-        }
-        @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide-down {
-          animation: slideDown 0.3s ease-out;
-        }
-      `}</style>
-
       <nav className="sticky top-0 flex justify-between items-center bg-gradient-to-r from-gray-900 via-black to-gray-900 px-4 md:px-6 lg:px-8 py-4 shadow-2xl border-b border-gray-800/50 backdrop-blur-lg min-h-[5rem] z-50">
         {/* Mobile Menu Button */}
         <button
