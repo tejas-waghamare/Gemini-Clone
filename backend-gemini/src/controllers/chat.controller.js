@@ -1,4 +1,5 @@
 import Chat from "../models/chat.model.js";
+import Message from "../models/message.model.js";
 
 export const getChats = async (req, res) => {
 
@@ -55,22 +56,19 @@ export const deleteChat = async (req, res) => {
     const { chatId } = req.params;
 
     try {
-        const isChatDeleted = await Chat.deleteOne({ chatId });
+        const isChatDeleted = await Chat.deleteOne({ _id: chatId });
 
-        if (!isChatDeleted) {
-            res.status(400).json({
+        if (isChatDeleted.deletedCount === 0) {
+            return res.status(400).json({
                 status: 'error',
-                message: 'Chat cannot be deleted!'
-            })
+                message: 'Chat not found or cannot be deleted!'
+            });
         }
 
         const isMessagesDeleted = await Message.deleteMany({ chatId });
 
-        if (!isMessagesDeleted) {
-            res.status(400).json({
-                status: 'error',
-                message: 'Unable to delete messages from the chat!'
-            })
+        if (isMessagesDeleted.deletedCount === 0) {
+            console.log('No messages to delete or unable to delete messages from the chat!');
         }
 
         res.status(200).json({

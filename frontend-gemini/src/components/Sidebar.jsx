@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineChatAlt2, HiOutlinePlusCircle, HiMenu, HiX, HiTrash } from "react-icons/hi";
 import { removeChat } from "../features/chatSlice"; // Replace with actual action if different
+import { deleteChatFromDB } from "../services/servics";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,13 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleDelete = (id) => {
-    dispatch(removeChat(id));
+  const handleDelete = async (id) => {
+    const result = await deleteChatFromDB(id);
+    if (result !== false) {
+      dispatch(removeChat(id));
+    } else {
+      alert("Failed to delete chat. Please try again.");
+    }
   };
 
   const filteredChats = chats.filter(chat =>
