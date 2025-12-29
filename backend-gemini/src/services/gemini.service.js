@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 export const getGeminiResponse = async (question) => {
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-exp", // Use a valid model
+            model: "gemini-1.5-flash",
             contents: [{ role: "user", parts: [{ text: question }] }],
         });
 
@@ -20,6 +20,6 @@ export const getGeminiResponse = async (question) => {
         return parsedResponse;
     } catch (error) {
         console.error("Error getting Gemini response:", error);
-        throw new Error("Failed to get response from Gemini");
+        throw new Error("Failed to get response from Gemini: " + error.message);
     }
 };
