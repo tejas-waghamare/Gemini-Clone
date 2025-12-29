@@ -1,21 +1,31 @@
 // import axios from "axios";
-// import { GoogleGenAI } from "@google/genai";
-// import { marked } from "marked";
-
-
-// const GEMINI_API_KEY = "AIzaSyDZQh799pxWjxJxV89-S9w3g_7gR6fql_k";
-
-// const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 // export const getGeminiResponse = async (question) => {
+//     let token = localStorage.getItem('token');
     
-//     const response = await ai.models.generateContent({
-//         model: "gemini-2.5-flash",
-//         contents: question,
-//     });
-
-//     const parsedResponse = await marked.parse(response.text)
-//     return parsedResponse;
+//     if (!token) {
+//         return false;
+//     }
+    
+//     let config = {
+//         headers: {
+//             Authorization: `Bearer ${token}`,
+//         },
+//     };
+    
+//     try {
+//         const res = await axios.post('https://gemini-clone-backend-z3g9.onrender.com/api/v1/message/get-gemini-response', { question }, config);
+        
+//         if (res.data.status === 'success') {
+//             return res.data.data;
+//         } else {
+//             console.error('Gemini response failed:', res.data.message);
+//             return false;
+//         }
+//     } catch (err) {
+//         console.error('ERROR getting Gemini response:', err.response?.data || err.message);
+//         return false;
+//     }
 // }
 
 // export const createNewChatinDB = async (name) => {

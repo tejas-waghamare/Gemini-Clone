@@ -1,4 +1,5 @@
 import Message from "../models/message.model.js";
+import { getGeminiResponse } from "../services/gemini.service.js";
 
 export const createMessage = async (req, res) => {
 
@@ -45,5 +46,29 @@ export const getAllMessages = async (req, res) => {
         })
     } catch (error) {
 
+    }
+}
+
+export const getGeminiResponseController = async (req, res) => {
+    const { question } = req.body;
+
+    if (!question) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Question is required'
+        });
+    }
+
+    try {
+        const response = await getGeminiResponse(question);
+        res.status(200).json({
+            status: 'success',
+            data: response
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'error',
+            message: err.message
+        });
     }
 }
