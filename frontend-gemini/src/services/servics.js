@@ -140,13 +140,18 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export const getGeminiResponse = async (question) => {
-    const response = await ai.models.generateContent({
-        model: "gemini-1.5-flash",
-        contents: [{ role: "user", parts: [{ text: question }] }],
-    });
+    try {
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: question,
+        });
 
-    const parsedResponse = await marked.parse(response.response.text())
-    return parsedResponse;
+        const parsedResponse = await marked.parse(response.text)
+        return parsedResponse;
+    } catch (error) {
+        console.error("Error getting Gemini response:", error);
+        return "Sorry, I couldn't generate a response. Please try again.";
+    }
 }
 
 export const createNewChatinDB = async (name) => {
