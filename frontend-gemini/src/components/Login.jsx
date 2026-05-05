@@ -456,11 +456,11 @@ const Login = () => {
             {isLoading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-md z-40">
                     <div className="text-center">
-                        <div className="relative">
+                        <div className="center w-32 h-32 mx-auto relative">
                             <div className="w-24 h-24 border-4 border-transparent border-t-cyan-400 border-r-purple-400 border-b-pink-400 border-l-emerald-400 rounded-full animate-spin"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            {/* <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
-                            </div>
+                            </div> */}
                         </div>
                         <span className="mt-6 text-2xl bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent font-bold animate-pulse">
                             Securely logging you in...

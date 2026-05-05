@@ -357,14 +357,14 @@ const Register = () => {
             {isLoading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-lg z-50">
                     <div className="text-center">
-                        <div className="relative mb-8">
+                        <div className="center w-32 h-32 mx-auto relative">
                             <div className="w-32 h-32 border-4 border-transparent border-t-purple-400 border-r-cyan-400 border-b-pink-400 border-l-indigo-400 rounded-full animate-spin"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            {/* <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500 rounded-full animate-pulse"></div>
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-white text-2xl font-bold">✨</span>
-                            </div>
+                            </div> */}
                         </div>
                         <span className="text-3xl bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent font-bold animate-pulse">
                             Creating Your Account
